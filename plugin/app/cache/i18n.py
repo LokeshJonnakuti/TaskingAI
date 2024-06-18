@@ -1,7 +1,8 @@
-from typing import List, Dict
+from typing import Dict
 from config import CONFIG
 from app.utils import checksum
 import logging
+
 logger = logging.getLogger(__name__)
 
 __all__ = [
@@ -48,10 +49,7 @@ def get_i18n(provider_id: str, lang: str, key: str):
     """
 
     i18n_key = f"{provider_id}:{lang}:{key}"
-    return (
-        __i18n.get(i18n_key, "") or
-        __i18n.get(f"{provider_id}:{CONFIG.DEFAULT_LANG}:{key}", "")
-    )
+    return __i18n.get(i18n_key, "") or __i18n.get(f"{provider_id}:{CONFIG.DEFAULT_LANG}:{key}", "")
 
 
 def get_i18n_cache() -> Dict[str, str]:
@@ -68,4 +66,3 @@ def get_i18n_checksum() -> str:
     :return: the i18n checksum.
     """
     return __i18n_checksum
-

@@ -7,7 +7,6 @@ load_dotenv()
 
 
 class Config:
-
     # host
     HOST = "http://127.0.0.1"
 
@@ -23,7 +22,6 @@ class Config:
     WEB_BASE_URL = f"{HOST}:{WEB_SERVICE_PORT}{WEB_ROUTE_PREFIX}"
     API_BASE_URL = f"{HOST}:{API_SERVICE_PORT}{API_ROUTE_PREFIX}"
     OAPI_BASE_URL = API_BASE_URL
-
 
     # http proxy
     HTTP_PROXY_URL = "http://127.0.0.1:7890"
@@ -147,21 +145,20 @@ class Config:
         },
     }
     RERANK_MODEL = {
-            "host_type": "provider",
-            "model_schema_id": "cohere/rerank-english-v2.0",
-            "name": "Rerank Model",
-            "credentials": {"COHERE_API_KEY": COHERE_API_KEY},
-        }
+        "host_type": "provider",
+        "model_schema_id": "cohere/rerank-english-v2.0",
+        "name": "Rerank Model",
+        "credentials": {"COHERE_API_KEY": COHERE_API_KEY},
+    }
 
     DEBUG_ERROR_MODEL = {
-            "host_type": "provider",
-            "name": "Debug Error Model",
-            "model_schema_id": "debug/debug-error",
-            "credentials": {"DEBUG_API_KEY": "12345678"},
-        }
+        "host_type": "provider",
+        "name": "Debug Error Model",
+        "model_schema_id": "debug/debug-error",
+        "credentials": {"DEBUG_API_KEY": "12345678"},
+    }
 
     def __init__(self):
-
         self.TEST_MODE = os.environ.get("TEST_MODE")
 
         if self.TEST_MODE == "TASKINGAI_WEB_TEST":
@@ -196,10 +193,12 @@ class Config:
             self.rerank_model_id = self.get_model(model_url, self.RERANK_MODEL, token)
             self.debug_error_model_id = self.get_model(model_url, self.DEBUG_ERROR_MODEL, token)
             self.TEXT_EMBEDDING_MODEL["fallbacks"] = {
-                "model_list": [{"model_id": self.togetherai_text_embedding_model_id}]}
+                "model_list": [{"model_id": self.togetherai_text_embedding_model_id}]
+            }
             self.fallbacks_text_embedding_model_id = self.get_model(model_url, self.TEXT_EMBEDDING_MODEL, token)
             self.CHAT_COMPLETION_MODEL["fallbacks"] = {
-                "model_list": [{"model_id": self.custom_host_chat_completion_model_id}]}
+                "model_list": [{"model_id": self.custom_host_chat_completion_model_id}]
+            }
             self.fallbacks_chat_completion_model_id = self.get_model(model_url, self.CHAT_COMPLETION_MODEL, token)
             self.RERANK_MODEL["fallbacks"] = {"model_list": [{"model_id": self.rerank_model_id}]}
             self.fallbacks_rerank_model_id = self.get_model(model_url, self.RERANK_MODEL, token)
@@ -223,7 +222,6 @@ class Config:
         return res_data["token"]
 
     def get_model(self, model_url, model_data, token):
-
         from backend.tests.common.utils import get_headers
 
         response = requests.post(model_url, headers=get_headers(token), json=model_data)
@@ -249,5 +247,6 @@ class Config:
         from backend.tests.common.utils import get_headers
 
         res = requests.post(bundle_instance_url, json=bundle_instance_dict, headers=get_headers(token))
+
 
 CONFIG = Config()

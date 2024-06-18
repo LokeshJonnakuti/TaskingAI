@@ -1,9 +1,5 @@
-import base64
 import json
-from io import BytesIO
 
-import aiohttp
-from PIL import Image
 from aiohttp import ClientSession
 
 from app.service.image_load import fetch_image_format, get_image_base64_string
@@ -52,4 +48,3 @@ class ChatCompletionByGemini15Pro(PluginHandler):
                 else:
                     response_json = await response.json()
                     raise_provider_api_error(json.dumps(response_json))
-

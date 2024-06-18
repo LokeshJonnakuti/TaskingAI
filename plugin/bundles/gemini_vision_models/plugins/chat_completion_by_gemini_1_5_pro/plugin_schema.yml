@@ -20,7 +20,7 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      image_url: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png
-      prompt: Please describe the image
+    - input:
+        image_url: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png
+        prompt: Please describe the image
   mode: schema

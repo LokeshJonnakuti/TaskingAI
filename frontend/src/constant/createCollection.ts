@@ -1,6 +1,6 @@
 interface createCollectionType {
-    OpenDrawer: boolean,
-    handleModalCloseOrOpen: (open: boolean) => void,
-    handleFetchData: () => void,
+  OpenDrawer: boolean;
+  handleModalCloseOrOpen: (open: boolean) => void;
+  handleFetchData: () => void;
 }
-export type { createCollectionType }
+export type { createCollectionType };

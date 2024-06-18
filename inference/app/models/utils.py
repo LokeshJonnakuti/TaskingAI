@@ -26,7 +26,6 @@ def generate_random_id(length):
 
 
 def aes_encrypt(plain_text: str):
-
     """
     Encrypt the plain text using AES.
     :param plain_text: The plain text.
@@ -41,7 +40,6 @@ def aes_encrypt(plain_text: str):
 
 
 def aes_decrypt(encrypted_text: str):
-
     """
     Decrypt the encrypted text using AES.
     :param encrypted_text: The encrypted text.

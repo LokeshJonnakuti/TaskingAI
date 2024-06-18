@@ -2,7 +2,6 @@ import json
 
 from aiohttp import ClientSession
 
-import base64
 from app.service.image_storage import save_url_image_to_s3_or_local
 
 from bundle_dependency import *

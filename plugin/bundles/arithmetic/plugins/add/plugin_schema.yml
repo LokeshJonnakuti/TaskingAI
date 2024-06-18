@@ -38,4 +38,3 @@ test:
         number_2: 5.876
       output:
         result: 10.999
-

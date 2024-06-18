@@ -39,5 +39,3 @@ test:
         number_2: 21.2
       output:
         result: 108.756
-
-

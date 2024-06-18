@@ -25,7 +25,7 @@ __bundle_checksum: str = ""
 
 
 def collect_i18n_values(yaml_content: str):
-    pattern = re.compile(r'i18n:[\w_]+')
+    pattern = re.compile(r"i18n:[\w_]+")
     return pattern.findall(yaml_content)
 
 
@@ -40,7 +40,7 @@ def load_bundle_data() -> List[str]:
     bundles_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../bundles")
     # List all entries in the bundles directory that are directories
     bundle_ids = [i for i in os.listdir(bundles_path) if os.path.isdir(os.path.join(bundles_path, i))]
-    pattern = re.compile(r'^[a-z0-9][a-z0-9_]*$')
+    pattern = re.compile(r"^[a-z0-9][a-z0-9_]*$")
     bundle_ids = [i for i in bundle_ids if pattern.match(i) and not i.startswith("template")]
     # todo: check bundle_ids in a-z, 0-9, _
 
@@ -56,7 +56,6 @@ def load_bundle_data() -> List[str]:
         # Check if file is not empty
         if os.path.getsize(file_path) > 0:
             try:
-
                 # Open and read the file
                 with open(file_path, "r") as file:
                     bundle_str = file.read()
@@ -69,8 +68,9 @@ def load_bundle_data() -> List[str]:
                 if os.path.exists(model_schema_dir):
                     for plugin_folder_name in os.listdir(model_schema_dir):
                         # read plugin_folder_name/plugin_schema.yml
-                        if (plugin_folder_name.startswith("_") or
-                                not os.path.isdir(os.path.join(model_schema_dir, plugin_folder_name))):
+                        if plugin_folder_name.startswith("_") or not os.path.isdir(
+                            os.path.join(model_schema_dir, plugin_folder_name)
+                        ):
                             continue
                         file_path = os.path.join(model_schema_dir, plugin_folder_name, "plugin_schema.yml")
                         if os.path.getsize(file_path) > 0:
@@ -91,7 +91,9 @@ def load_bundle_data() -> List[str]:
                             set_i18n(bundle_id, lang, i18n_data)
 
                 # Process the data
-                bundle = Bundle.build(bundle_dict,)
+                bundle = Bundle.build(
+                    bundle_dict,
+                )
                 __bundle_dict[bundle_id] = bundle
                 __bundles.append(bundle)
 

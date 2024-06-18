@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      prompt: A cartoon cat playing Texas Hold'em with 6 mice.
+    - input:
+        prompt: A cartoon cat playing Texas Hold'em with 6 mice.
   mode: schema

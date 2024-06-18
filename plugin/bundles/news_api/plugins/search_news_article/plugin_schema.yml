@@ -30,7 +30,7 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      count: 5
-      query: Tesla
+    - input:
+        count: 5
+        query: Tesla
   mode: schema

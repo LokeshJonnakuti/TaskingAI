@@ -1,19 +1,19 @@
 .button-footer {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
 
-    .next-button {
-        margin-left: 10px;
-        background-color: #09914f;
-        color: white;
-    }
+  .next-button {
+    margin-left: 10px;
+    background-color: #09914f;
+    color: white;
+  }
 
-    .next-button {
-        background-color: var(--color-positive);
-        color: var(--color-invert-text)
-    }
-    .button{
-        margin-left: 10px;
-    }
+  .next-button {
+    background-color: var(--color-positive);
+    color: var(--color-invert-text);
+  }
+  .button {
+    margin-left: 10px;
+  }
 }

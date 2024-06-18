@@ -3,7 +3,6 @@ from typing import List
 import base64
 from app.service.image_storage import save_base64_image_to_s3_or_local
 from bundle_dependency import *
-from config import CONFIG
 
 import plotly.express as px
 
@@ -30,8 +29,6 @@ class MakeLineChart(PluginHandler):
         # convert image bytes to base64 string
         base_64_fig = base64.b64encode(bytes_fig).decode("utf-8")
 
-        url = await save_base64_image_to_s3_or_local(
-            base_64_fig, project_id, "png", "chart_maker/make_line_chart"
-        )
+        url = await save_base64_image_to_s3_or_local(base_64_fig, project_id, "png", "chart_maker/make_line_chart")
 
         return PluginOutput(data={"url": url})

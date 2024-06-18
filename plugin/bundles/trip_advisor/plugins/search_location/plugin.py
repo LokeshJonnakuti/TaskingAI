@@ -25,7 +25,6 @@ class SearchLocation(PluginHandler):
 
         async with ClientSession() as session:
             async with session.get(url=url, headers={"accept": "application/json"}, proxy=CONFIG.PROXY) as response:
-
                 if response.status == 200:
                     data = await response.json()
                     locations = []

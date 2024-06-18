@@ -6,9 +6,7 @@ __all__ = ["UploadFileResponse"]
 
 
 class UploadFileResponse(BaseModel):
-    status: str = Field(
-        "success", Literal="success", description="The status of the response."
-    )
+    status: str = Field("success", Literal="success", description="The status of the response.")
     data: FileIdData = Field(
         ...,
         description="The file API response data.",
