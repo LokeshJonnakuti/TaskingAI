@@ -3,11 +3,11 @@ import json
 import datetime
 from dateutil.relativedelta import relativedelta
 from typing import Dict
-import random
 import string
 import os
 import aiohttp
 from backend.tests.common.logger import logger
+import secrets
 
 
 class ResponseWrapper:
@@ -115,7 +115,7 @@ def assume_auth(res, auth_dict: Dict):
 
 
 def get_password():
-    return "".join(random.choices(string.ascii_letters, k=7)) + str(random.randint(0, 9))
+    return "".join(secrets.SystemRandom().choices(string.ascii_letters, k=7)) + str(secrets.SystemRandom().randint(0, 9))
 
 
 def assume_user_profile(res, user_dict: Dict):
@@ -215,7 +215,7 @@ def assume_action(action, action_dict: Dict):
 
 def generate_random_string(length):
     letters = string.ascii_letters
-    return "".join(random.choice(letters) for _ in range(length))
+    return "".join(secrets.choice(letters) for _ in range(length))
 
 
 def get_file_name(file_path: str):

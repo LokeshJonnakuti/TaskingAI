@@ -3,7 +3,7 @@ from .utils import aes_encrypt, aes_decrypt
 from config import load_str_env
 from typing import Dict, Optional, List, Tuple
 from app.error import ErrorCode, raise_http_error
-import random
+import secrets
 
 __all__ = ["ProviderCredentials", "validate_credentials"]
 
@@ -68,7 +68,7 @@ class ProviderCredentials(BaseModel):
             except Exception:
                 break
         # Choose a random set of credentials
-        chosen_credentials = random.choice(credentials_set)
+        chosen_credentials = secrets.choice(credentials_set)
         for key, value in chosen_credentials.items():
             self.credentials[key] = value
         return self
@@ -101,7 +101,7 @@ class ProviderCredentials(BaseModel):
                 break
 
         # Choose a random set of credentials
-        chosen_credentials = random.choice(credentials_set)
+        chosen_credentials = secrets.choice(credentials_set)
         for key, value in chosen_credentials.items():
             self.credentials[key] = value
         return self

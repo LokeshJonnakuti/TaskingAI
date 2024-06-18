@@ -1,6 +1,6 @@
-import random
 
 from bundle_dependency import *
+import secrets
 
 
 class GenerateRandomIntegers(PluginHandler):
@@ -14,6 +14,6 @@ class GenerateRandomIntegers(PluginHandler):
 
         results = []
         for i in range(number):
-            results.append(random.randint(min, max))
+            results.append(secrets.SystemRandom().randint(min, max))
 
         return PluginOutput(status=200, data={"result": results})
