@@ -29,7 +29,7 @@ def request_access_token(api_key: str, secret_key: str) -> Tuple[str, int]:
     headers = {"Accept": "application/json"}
 
     try:
-        response = requests.post(url, params=params, headers=headers)
+        response = requests.post(url, params=params, headers=headers, timeout=60)
         response.raise_for_status()
         result = response.json()
         if "error" in result:

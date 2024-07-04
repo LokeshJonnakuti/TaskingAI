@@ -218,7 +218,7 @@ class Config:
             self.BASE_URL = self.API_BASE_URL
 
     def get_token(self, url, data):
-        response = requests.post(url, json=data)
+        response = requests.post(url, json=data, timeout=60)
         res_data = response.json()["data"]
         return res_data["token"]
 
@@ -226,28 +226,28 @@ class Config:
 
         from backend.tests.common.utils import get_headers
 
-        response = requests.post(model_url, headers=get_headers(token), json=model_data)
+        response = requests.post(model_url, headers=get_headers(token), json=model_data, timeout=60)
         model_id = response.json()["data"]["model_id"]
         return model_id
 
     def get_apikey(self, apikey_url, apikey_data, token):
         from backend.tests.common.utils import get_headers
 
-        apikeys = requests.get(apikey_url, headers=get_headers(token))
+        apikeys = requests.get(apikey_url, headers=get_headers(token), timeout=60)
         apikeys_data = apikeys.json()["data"]
         if len(apikeys_data) > 0:
             apikey_id = apikeys_data[0]["apikey_id"]
-            apikey_res = requests.get(f"{apikey_url}/{apikey_id}", headers=get_headers(token), params={"plain": True})
+            apikey_res = requests.get(f"{apikey_url}/{apikey_id}", headers=get_headers(token), params={"plain": True}, timeout=60)
             return apikey_res.json()["data"]["apikey"]
         else:
-            create_apikey_res = requests.post(apikey_url, headers=get_headers(token), json=apikey_data)
+            create_apikey_res = requests.post(apikey_url, headers=get_headers(token), json=apikey_data, timeout=60)
             apikey_id = create_apikey_res.json()["data"]["apikey_id"]
-            apikey_res = requests.get(f"{apikey_url}/{apikey_id}", headers=get_headers(token), params={"plain": True})
+            apikey_res = requests.get(f"{apikey_url}/{apikey_id}", headers=get_headers(token), params={"plain": True}, timeout=60)
             return apikey_res.json()["data"]["apikey"]
 
     def create_bundle_instance(self, bundle_instance_url, bundle_instance_dict, token):
         from backend.tests.common.utils import get_headers
 
-        res = requests.post(bundle_instance_url, json=bundle_instance_dict, headers=get_headers(token))
+        res = requests.post(bundle_instance_url, json=bundle_instance_dict, headers=get_headers(token), timeout=60)
 
 CONFIG = Config()
