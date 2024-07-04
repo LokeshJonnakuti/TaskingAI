@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      food_description: 10oz onion and a tomato
+    - input:
+        food_description: 10oz onion and a tomato
   mode: schema

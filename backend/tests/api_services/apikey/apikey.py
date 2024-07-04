@@ -5,6 +5,7 @@ from backend.tests.common.config import CONFIG
 
 APIKEY_BASE_URL = f"{CONFIG.WEB_BASE_URL}/apikeys"
 
+
 async def list_apikey():
     headers = get_headers(CONFIG.Authentication)
     async with aiohttp.ClientSession(headers=headers) as session:

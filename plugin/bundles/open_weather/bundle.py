@@ -4,7 +4,6 @@ from bundle_dependency import *
 
 
 class OpenWeather(BundleHandler):
-
     async def verify(self, credentials: BundleCredentials):
         # todo: implement with actual verification logic
         lat: float = 30.25
@@ -12,11 +11,11 @@ class OpenWeather(BundleHandler):
 
         base_url = "https://api.openweathermap.org/data/3.0/onecall"
         params = {
-            'lat': lat,
-            'lon': lon,
-            'exclude': 'minutely,hourly,daily,alerts',
-            'appid': credentials.credentials.get("OPEN_WEATHER_API_KEY", ""),
-            'units': 'metric'
+            "lat": lat,
+            "lon": lon,
+            "exclude": "minutely,hourly,daily,alerts",
+            "appid": credentials.credentials.get("OPEN_WEATHER_API_KEY", ""),
+            "units": "metric",
         }
         async with ClientSession() as session:
             async with session.get(base_url, params=params) as response:
@@ -24,7 +23,3 @@ class OpenWeather(BundleHandler):
                     pass
                 else:
                     raise_credentials_validation_error()
-
-
-
-

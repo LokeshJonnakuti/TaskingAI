@@ -27,12 +27,14 @@ class ChatCompletionFunctionCall(BaseModel):
         examples=["plus_a_and_b"],
     )
 
+
 class ChatCompletionFunctionParametersPropertyItems(BaseModel):
     type: str = Field(
         ...,
         pattern="^(string|number|integer|boolean)$",
         description="The type of the item.",
     )
+
 
 class ChatCompletionFunctionParametersProperty(BaseModel):
     # type in ["string", "number", "integer", "boolean"]

@@ -3,7 +3,6 @@ from test.inference_service.inference import *
 
 
 class TestOthers:
-
     caches_keys_list = ["providers", "model_schemas", "i18n"]
     cache_checksums_keys_list = ["i18n_checksum", "model_schema_checksum", "provider_checksum"]
     white_resources_list = ["https://www.llama-api.com/account/usage"]

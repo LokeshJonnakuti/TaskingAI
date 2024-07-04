@@ -15,7 +15,7 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      interval: 5min
-      symbol: AAPL
+    - input:
+        interval: 5min
+        symbol: AAPL
   mode: schema

@@ -90,7 +90,6 @@ def _build_mistral_chat_completion_payload(
         payload["response_format"] = {"type": configs.response_format}
 
         if configs.response_format == "json_object":
-
             if payload["messages"][0]["role"] == "system":
                 payload["messages"][0][
                     "content"

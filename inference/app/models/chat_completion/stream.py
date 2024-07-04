@@ -40,7 +40,6 @@ class AsyncStream(object):
 
     async def __stream__(self) -> AsyncIterator[Dict]:
         async for sse_line in self._iter_events():
-
             # skip the line with [DONE] as it indicates the end of the stream
             if "[DONE]" in sse_line:
                 break

@@ -18,7 +18,6 @@ credentials_schema:
     - HUGGING_FACE_API_KEY
     - HUGGING_INFERENCE_ENDPOINT_URL
 
-
 resources:
   taskingai_documentation_url: "https://docs.tasking.ai/docs/integration/models/language_models/hugging-face-inference-endpoint"
   official_site_url: "https://huggingface.co/"

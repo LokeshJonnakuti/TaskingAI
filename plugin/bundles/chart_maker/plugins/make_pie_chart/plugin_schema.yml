@@ -25,13 +25,13 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      labels:
-      - A
-      - B
-      - C
-      values:
-      - 10
-      - 20
-      - 30
+    - input:
+        labels:
+          - A
+          - B
+          - C
+        values:
+          - 10
+          - 20
+          - 30
   mode: schema

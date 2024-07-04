@@ -5,7 +5,6 @@ name: "i18n:moonshot_v1_128k_name"
 description: "i18n:moonshot_v1_128k_description"
 default_endpoint_url: https://api.moonshot.cn/v1/chat/completions
 
-
 properties:
   function_call: true
   streaming: true

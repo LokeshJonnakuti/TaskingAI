@@ -24,7 +24,6 @@ __plugin_schema_checksum: str = ""
 
 
 def load_plugin_data(bundle_ids: List[str]) -> Dict[str, List[str]]:
-
     """
     Load plugin data from YAML files.
     :param bundle_ids: a list of bundle ids.
@@ -37,11 +36,10 @@ def load_plugin_data(bundle_ids: List[str]) -> Dict[str, List[str]]:
 
     # Iterate through each file in the directory
     for bundle_id in bundle_ids:
-
         plugin_dir_path = os.path.join(bundles_path, bundle_id, "plugins")
         # List all entries in the plugins directory that are directories
         plugin_ids = [i for i in os.listdir(plugin_dir_path) if os.path.isdir(os.path.join(plugin_dir_path, i))]
-        pattern = re.compile(r'^[a-z0-9][a-z0-9_]*$')
+        pattern = re.compile(r"^[a-z0-9][a-z0-9_]*$")
         plugin_ids = [i for i in plugin_ids if pattern.match(i)]
 
         __bundle_plugin_list[bundle_id] = []
@@ -54,7 +52,6 @@ def load_plugin_data(bundle_ids: List[str]) -> Dict[str, List[str]]:
             # Check if file is not empty
             if os.path.getsize(file_path) > 0:
                 try:
-
                     # Open and read the file
                     with open(file_path, "r") as file:
                         plugin_data = yaml.safe_load(file)  # Use yaml.safe_load to load YAML data

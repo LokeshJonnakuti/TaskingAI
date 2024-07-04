@@ -31,7 +31,6 @@ logger.addHandler(console_handler)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-
     from app.cache import (
         load_model_schema_data,
         load_provider_data,
@@ -54,7 +53,6 @@ async def lifespan(app: FastAPI):
 
 
 def init_route_logger(filters: List[str]):
-
     logger = logging.getLogger("uvicorn.access")
     if logger.handlers:
         handler = logger.handlers[0]
@@ -77,7 +75,6 @@ def init_route_logger(filters: List[str]):
 
 
 def create_app():
-
     app = FastAPI(
         title="TaskingAI-Inference",
         version=CONFIG.VERSION,

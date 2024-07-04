@@ -7,7 +7,6 @@ router = APIRouter()
 
 
 class BundleListRequest(BaseModel):
-
     lang: str = Field(
         "en",
         description="The language code of the response.",

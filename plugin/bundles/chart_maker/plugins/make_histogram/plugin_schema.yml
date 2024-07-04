@@ -25,12 +25,12 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      values:
-      - '1'
-      - '2'
-      - '2'
-      - '4'
-      - '4'
-      - '6'
+    - input:
+        values:
+          - "1"
+          - "2"
+          - "2"
+          - "4"
+          - "4"
+          - "6"
   mode: schema

@@ -1,44 +1,68 @@
-import { request } from '../utils/index'
+import { request } from "../utils/index";
 
-const getRecordsList = async <T extends Record<string, string>>(collectionId: string, params: T) => {
-    const project_base_url = `api/v1`
-    const data = params
-    let str = ''
-    if (data.hasOwnProperty('name_search')) {
-        str += `prefix_filter={"name":"${data.name_search}"}&`
-        delete data.name_search
-    } else if (data.hasOwnProperty('id_search')) {
-        str += `prefix_filter={"record_id":"${data.id_search}"}&`
-        delete data.id_search
-    }
-    if (data) {
-        Object.keys(data).forEach(key => {
-            str += `${key}=${data[key]}&`
-        })
-        str = str.substring(0, str.length - 1)
-    }
-    return await request.get(`${project_base_url}/collections/${collectionId}/records?${str}`)
-}
+const getRecordsList = async <T extends Record<string, string>>(
+  collectionId: string,
+  params: T,
+) => {
+  const project_base_url = `api/v1`;
+  const data = params;
+  let str = "";
+  if (data.hasOwnProperty("name_search")) {
+    str += `prefix_filter={"name":"${data.name_search}"}&`;
+    delete data.name_search;
+  } else if (data.hasOwnProperty("id_search")) {
+    str += `prefix_filter={"record_id":"${data.id_search}"}&`;
+    delete data.id_search;
+  }
+  if (data) {
+    Object.keys(data).forEach((key) => {
+      str += `${key}=${data[key]}&`;
+    });
+    str = str.substring(0, str.length - 1);
+  }
+  return await request.get(
+    `${project_base_url}/collections/${collectionId}/records?${str}`,
+  );
+};
 const createRecord = async (collectionId: string, params: object) => {
-    const project_base_url = `api/v1`
-    return await request.post(`${project_base_url}/collections/${collectionId}/records`, params)
-}
+  const project_base_url = `api/v1`;
+  return await request.post(
+    `${project_base_url}/collections/${collectionId}/records`,
+    params,
+  );
+};
 const deleteRecord = async (collectionId: string, id: string) => {
-    const project_base_url = `api/v1`
-    return await request.delete(`${project_base_url}/collections/${collectionId}/records/${id}`)
-
-}
-const updateRecord = async (collectionId: string, id: string, params: object) => {
-    const project_base_url = `api/v1`
-    return await request.post(`${project_base_url}/collections/${collectionId}/records/${id}`, params)
-}
+  const project_base_url = `api/v1`;
+  return await request.delete(
+    `${project_base_url}/collections/${collectionId}/records/${id}`,
+  );
+};
+const updateRecord = async (
+  collectionId: string,
+  id: string,
+  params: object,
+) => {
+  const project_base_url = `api/v1`;
+  return await request.post(
+    `${project_base_url}/collections/${collectionId}/records/${id}`,
+    params,
+  );
+};
 const getRecord = async (collectionId: string, id: string) => {
-    const project_base_url = `api/v1`
-    return await request.get(`${project_base_url}/collections/${collectionId}/records/${id}`)
-}
+  const project_base_url = `api/v1`;
+  return await request.get(
+    `${project_base_url}/collections/${collectionId}/records/${id}`,
+  );
+};
 const uploadFile = async (params: object) => {
-    const project_base_url = `api/v1`
-    return await request.post(`${project_base_url}/files`, params)
-
-}
-export { getRecordsList, createRecord, deleteRecord, updateRecord, getRecord, uploadFile }
+  const project_base_url = `api/v1`;
+  return await request.post(`${project_base_url}/files`, params);
+};
+export {
+  getRecordsList,
+  createRecord,
+  deleteRecord,
+  updateRecord,
+  getRecord,
+  uploadFile,
+};

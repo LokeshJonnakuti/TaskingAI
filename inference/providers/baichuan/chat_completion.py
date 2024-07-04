@@ -77,7 +77,6 @@ class BaichuanChatCompletionModel(BaseChatCompletionModel):
         return None
 
     def extract_function_calls(self, data: Dict, **kwargs) -> Optional[List[ChatCompletionFunctionCall]]:
-
         return None
 
     def extract_finish_reason(self, data: Dict, **kwargs) -> Optional[ChatCompletionFinishReason]:
@@ -124,5 +123,4 @@ class BaichuanChatCompletionModel(BaseChatCompletionModel):
     def stream_handle_function_calls(
         self, chunk_data: Dict, function_calls_content: ChatCompletionFunctionCallsContent, **kwargs
     ) -> Optional[ChatCompletionFunctionCallsContent]:
-
         return None

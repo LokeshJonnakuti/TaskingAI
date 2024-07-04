@@ -33,14 +33,12 @@ def load_default_credentials(path):
 
 
 def generate_test_cases():
-
     bundles_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../bundles")
     bundle_dir_names = [name for name in os.listdir(bundles_path) if os.path.isdir(os.path.join(bundles_path, name))]
     bundle_dir_names = [name for name in bundle_dir_names if not name.startswith("_")]
 
     cases = []
     for bundle_dir_name in bundle_dir_names:
-
         if bundle_dir_name in ["aftership", "coin_market_cap", "api_ninjas_commodity_price"]:
             continue
 

@@ -54,7 +54,6 @@ class ProviderListResponse(BaseModel):
 # List Model Schemas
 # GET /model_schemas
 class ModelSchemaListRequest(BaseModel):
-
     # filter
     type: Optional[ModelType] = Field(
         None,
@@ -129,7 +128,6 @@ class ModelSchemaGetRequest(BaseModel):
 
 
 class ProviderListRequest(BaseModel):
-
     lang: str = Field(
         "en",
         description="The language code of the response.",

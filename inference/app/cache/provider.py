@@ -52,7 +52,6 @@ def load_provider_data() -> List[str]:
         # Check if file is not empty
         if os.path.getsize(file_path) > 0:
             try:
-
                 # Open and read the file
                 with open(file_path, "r") as file:
                     provider_str = file.read()

@@ -30,9 +30,9 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      end_date: '2021-01-31'
-      interval: daily
-      start_date: '2021-01-01'
-      symbol: AAPL
+    - input:
+        end_date: "2021-01-31"
+        interval: daily
+        start_date: "2021-01-01"
+        symbol: AAPL
   mode: schema
