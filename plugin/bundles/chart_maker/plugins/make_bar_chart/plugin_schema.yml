@@ -35,13 +35,13 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      x_values:
-      - A
-      - B
-      - C
-      y_values:
-      - 10
-      - 20
-      - 30
+    - input:
+        x_values:
+          - A
+          - B
+          - C
+        y_values:
+          - 10
+          - 20
+          - 30
   mode: schema

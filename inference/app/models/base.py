@@ -1,7 +1,6 @@
 from typing import Optional, Any
 from pydantic import BaseModel, Field
 from typing import Dict, get_type_hints
-from abc import ABC, abstractmethod
 
 __all__ = [
     "BaseSuccessEmptyResponse",
@@ -30,7 +29,6 @@ class BaseSuccessListResponse(BaseModel):
 
 
 class BaseModelProperties(BaseModel):
-
     @classmethod
     def properties_schema(cls) -> Dict[str, Any]:
         schema = cls.model_json_schema()
@@ -59,9 +57,7 @@ class BaseModelProperties(BaseModel):
 
 
 class BaseModelPricing(BaseModel):
-
     currency: str = Field(
         ...,
         description="The currency of the price.",
     )
-

@@ -5,7 +5,8 @@ from backend.tests.common.utils import ResponseWrapper, get_headers
 from backend.tests.common.config import CONFIG
 from backend.tests.api_services.assistant.assistant import ASSISTANT_BASE_URL
 
-async def create_message(assistant_id: str,  chat_id: str, payload: Dict):
+
+async def create_message(assistant_id: str, chat_id: str, payload: Dict):
     headers = get_headers(CONFIG.Authentication)
     async with aiohttp.ClientSession(headers=headers) as session:
         request_url = f"{ASSISTANT_BASE_URL}/{assistant_id}/chats/{chat_id}/messages"
@@ -17,7 +18,7 @@ async def list_messages(assistant_id: str, chat_id: str, payload: Dict = None):
     headers = get_headers(CONFIG.Authentication)
     async with aiohttp.ClientSession(headers=headers) as session:
         request_url = f"{ASSISTANT_BASE_URL}/{assistant_id}/chats/{chat_id}/messages"
-        response = await session.get(url=request_url,  params=payload)
+        response = await session.get(url=request_url, params=payload)
         return ResponseWrapper(response.status, await response.json())
 
 

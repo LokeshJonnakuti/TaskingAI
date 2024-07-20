@@ -11,9 +11,7 @@ class CoinMarketCap(BundleHandler):
 
         url = f"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbol={symbol}"
 
-        headers = {
-            "X-CMC_PRO_API_KEY": coin_market_cap_api_key
-        }
+        headers = {"X-CMC_PRO_API_KEY": coin_market_cap_api_key}
 
         async with ClientSession() as session:
             async with session.get(url=url, headers=headers, proxy=CONFIG.PROXY) as response:
@@ -21,4 +19,3 @@ class CoinMarketCap(BundleHandler):
                     pass
                 else:
                     raise_credentials_validation_error()
-

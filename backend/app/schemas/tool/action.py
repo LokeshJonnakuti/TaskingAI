@@ -2,8 +2,12 @@ from typing import Optional, Any, Dict, List
 
 import openapi_spec_validator
 from pydantic import BaseModel, Field, field_validator, model_validator
-from app.models import Action, ActionAuthentication, EXAMPLE_OPENAPI_SCHEMA, validate_authentication_data, \
-    ActionAuthenticationType
+from app.models import (
+    Action,
+    ActionAuthentication,
+    validate_authentication_data,
+    ActionAuthenticationType,
+)
 
 import re
 
@@ -92,8 +96,8 @@ class ActionBulkCreateRequest(BaseModel):
     openapi_schema: Dict = Field(
         ...,
         description="The action schema is compliant with the OpenAPI Specification. "
-                    "If there are multiple paths and methods in the schema, "
-                    "the server will create multiple actions whose schema only has exactly one path and one method",
+        "If there are multiple paths and methods in the schema, "
+        "the server will create multiple actions whose schema only has exactly one path and one method",
     )
 
     authentication: ActionAuthentication = Field(
@@ -118,6 +122,7 @@ class ActionBulkCreateResponse(BaseModel):
     status: str = Field("success", Literal="success", description="The response status.", examples=["success"])
     data: List[Action] = Field(..., description="The created actions.")
 
+
 class ActionUpdateRequest(BaseModel):
     openapi_schema: Optional[Dict] = Field(
         default=None,
@@ -139,6 +144,7 @@ class ActionUpdateRequest(BaseModel):
         if data.authentication is not None:
             data.authentication.encrypt()
         return data
+
 
 # ----------------------------
 # Run an Action

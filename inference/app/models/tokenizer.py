@@ -122,7 +122,6 @@ def _estimate_message_tokens(message: dict) -> int:
 
 
 def estimate_input_tokens(messages: list[dict], functions: list[dict] = None, function_call=None) -> int:
-
     padded_system = False
     tokens = 0
 

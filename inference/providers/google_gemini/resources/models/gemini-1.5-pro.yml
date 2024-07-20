@@ -18,7 +18,6 @@ config_schemas:
   - config_id: stop
   - config_id: response_format
 
-
 pricing:
   input_token: 0.007
   output_token: 0.021

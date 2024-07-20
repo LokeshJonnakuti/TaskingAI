@@ -4,7 +4,6 @@ import pytest
 
 @pytest.mark.api_test
 class TestOpenAITextEmbedding:
-
     input_list = [{"input": "hello, nice to meet you"}, {"input": ["hello, nice to meet you", "i'm fine thank you"]}]
 
     long_list_text = {"input": ["*" * 600, "!" * 600]}
@@ -21,7 +20,6 @@ class TestOpenAITextEmbedding:
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("openai__001-002")
     async def test_text_embedding(self, input_data):
-
         res = client.embeddings.create(model=OPENAI_TEXT_EMBEDDING_MODEL_ID, input=input_data)
         for item in res.data:
             assert all(isinstance(value, float) for value in item.embedding)
@@ -31,7 +29,6 @@ class TestOpenAITextEmbedding:
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("openai_004")
     async def test_text_embedding_with_long_list_text(self):
-
         res = client.embeddings.create(model=OPENAI_TEXT_EMBEDDING_MODEL_ID, input=self.long_list_text)
         for item in res.data:
             assert all(isinstance(value, float) for value in item.embedding)

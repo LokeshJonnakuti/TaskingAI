@@ -17,4 +17,3 @@ class ExchangerateApi(BundleHandler):
                     pass
                 else:
                     raise_credentials_validation_error()
-

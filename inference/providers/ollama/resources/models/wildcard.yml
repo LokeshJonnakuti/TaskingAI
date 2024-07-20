@@ -6,7 +6,6 @@ description: "i18n:wildcard_description"
 
 properties:
 
-
 config_schemas:
   - config_id: temperature
   - config_id: top_p

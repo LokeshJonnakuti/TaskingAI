@@ -10,7 +10,7 @@ class AlphaVantage(BundleHandler):
 
         alpha_vantage_api_key: str = credentials.credentials.get("ALPHA_VANTAGE_API_KEY")
 
-        url = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval=5min&apikey={alpha_vantage_api_key}'
+        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval=5min&apikey={alpha_vantage_api_key}"
 
         async with ClientSession() as session:
             async with session.get(url=url, proxy=CONFIG.PROXY) as response:
@@ -18,5 +18,3 @@ class AlphaVantage(BundleHandler):
                     pass
                 else:
                     raise_credentials_validation_error()
-
-

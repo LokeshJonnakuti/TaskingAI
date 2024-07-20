@@ -11,9 +11,7 @@ class ApiNinjasCommodityPrice(BundleHandler):
 
         url = f"https://api.api-ninjas.com/v1/worldtime?city={city}"
 
-        headers = {
-            "X-Api-Key": api_ninjas_api_key
-        }
+        headers = {"X-Api-Key": api_ninjas_api_key}
 
         async with ClientSession() as session:
             async with session.get(url=url, headers=headers, proxy=CONFIG.PROXY) as response:
@@ -21,4 +19,3 @@ class ApiNinjasCommodityPrice(BundleHandler):
                     pass
                 else:
                     raise_credentials_validation_error()
-

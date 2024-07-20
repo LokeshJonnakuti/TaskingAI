@@ -7,4 +7,3 @@ echo "Starting tests..."
 pytest  -q  --tb=no -k "test_generate_image_local"
 
 echo "Tests completed."
-

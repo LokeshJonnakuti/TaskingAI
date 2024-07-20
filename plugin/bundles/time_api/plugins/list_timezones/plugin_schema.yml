@@ -10,6 +10,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      timezone: this is not used
+    - input:
+        timezone: this is not used
   mode: schema

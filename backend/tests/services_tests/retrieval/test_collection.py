@@ -1,6 +1,5 @@
 import pytest
 import json
-import asyncio
 from backend.tests.api_services.retrieval.collection import (
     create_collection,
     get_collection,
@@ -10,19 +9,15 @@ from backend.tests.api_services.retrieval.collection import (
     list_ui_collections,
     get_ui_collection,
 )
-from backend.tests.api_services.retrieval.record import create_record, get_record, update_record
-from backend.tests.api_services.retrieval.chunk import create_chunk
 from backend.tests.services_tests.retrieval import Retrieval
 from backend.tests.common.config import CONFIG
 
 
 @pytest.mark.api_test
 class TestCollection(Retrieval):
-
     @pytest.mark.run(order=131)
     @pytest.mark.asyncio
     async def test_create_collection(self):
-
         create_collection_data_list = [
             {
                 "capacity": 1000,
@@ -38,7 +33,6 @@ class TestCollection(Retrieval):
         ]
 
         for create_collection_data in create_collection_data_list:
-
             res = await create_collection(create_collection_data)
             res_json = res.json()
 
@@ -64,7 +58,6 @@ class TestCollection(Retrieval):
     @pytest.mark.run(order=131)
     @pytest.mark.asyncio
     async def test_create_collection_with_not_support_capacity(self):
-
         create_collection_data = {
             "capacity": 900,
             "embedding_model_id": CONFIG.text_embedding_model_id,
@@ -80,7 +73,6 @@ class TestCollection(Retrieval):
     @pytest.mark.run(order=132)
     @pytest.mark.asyncio
     async def test_get_collection(self):
-
         collection_res = await get_collection(self.collection_id)
         collection_json = collection_res.json()
 
@@ -92,9 +84,7 @@ class TestCollection(Retrieval):
     @pytest.mark.run(order=132)
     @pytest.mark.asyncio
     async def test_get_ui_collection(self):
-
         if "WEB" in CONFIG.TEST_MODE:
-
             collection_res = await get_ui_collection(self.collection_id)
             collection_json = collection_res.json()
 
@@ -107,7 +97,6 @@ class TestCollection(Retrieval):
     @pytest.mark.run(order=133)
     @pytest.mark.asyncio
     async def test_list_collections(self):
-
         list_collections_data_list = [
             {
                 "limit": 10,
@@ -145,7 +134,6 @@ class TestCollection(Retrieval):
     @pytest.mark.run(order=133)
     @pytest.mark.asyncio
     async def test_list_ui_collections(self):
-
         if "WEB" in CONFIG.TEST_MODE:
             list_ui_collections_data_list = [
                 {
@@ -165,7 +153,6 @@ class TestCollection(Retrieval):
                 },
             ]
             for list_ui_collections_data in list_ui_collections_data_list:
-
                 res = await list_ui_collections(list_ui_collections_data)
                 res_json = res.json()
 
@@ -183,7 +170,6 @@ class TestCollection(Retrieval):
     @pytest.mark.run(order=134)
     @pytest.mark.asyncio
     async def test_update_collection(self):
-
         update_collection_data_list = [
             {
                 "name": "test_update",
@@ -215,15 +201,12 @@ class TestCollection(Retrieval):
             for key in update_collection_data:
                 assert get_res_json.get("data").get(key) == update_collection_data[key]
 
-
     @pytest.mark.run(order=230)
     @pytest.mark.asyncio
     async def test_delete_collection(self):
-
         collections = await list_collections({"limit": 100})
         collection_ids = [collection.get("collection_id") for collection in collections.json().get("data")]
         for collection_id in collection_ids:
-
             res = await delete_collection(collection_id)
             res_json = res.json()
             assert res.status_code == 200, res.json()

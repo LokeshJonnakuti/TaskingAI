@@ -18,7 +18,6 @@ credentials_schema:
     - VOLCENGINE_API_KEY
     - VOLCENGINE_ENDPOINT_ID
 
-
 resources:
   taskingai_documentation_url: "https://docs.tasking.ai/docs/integration/models/language_models/volcengine"
   official_site_url: "https://www.volcengine.com/"

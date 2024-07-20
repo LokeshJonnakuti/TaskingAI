@@ -162,7 +162,6 @@ class TestOpenAIAssistantChatCompletion(Assistant):
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("openai_021")
     async def test_chat_completion_by_stream_function_call_result(self):
-
         res = client.chat.completions.create(
             model=Assistant.assistant_id,
             messages=[
@@ -197,7 +196,6 @@ class TestOpenAIAssistantChatCompletion(Assistant):
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("openai_022")
     async def test_chat_completion_by_normal_function_call_result(self):
-
         res = client.chat.completions.create(
             model=Assistant.assistant_id,
             messages=[
@@ -386,7 +384,6 @@ class TestOpenAIAssistantChatCompletion(Assistant):
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("openai_026")
     async def test_chat_completion_by_stream_and_tool_call_result(self):
-
         res = client.chat.completions.create(
             model=Assistant.assistant_id,
             messages=[
@@ -426,7 +423,6 @@ class TestOpenAIAssistantChatCompletion(Assistant):
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("openai_027")
     async def test_chat_completion_by_normal_and_tool_call_result(self):
-
         res = client.chat.completions.create(
             model=Assistant.assistant_id,
             messages=[

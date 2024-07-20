@@ -6,7 +6,6 @@ from app.service.image_storage import save_base64_image_to_s3_or_local
 from bundle_dependency import *
 import plotly.express as px
 
-from config import CONFIG
 
 
 class MakeHistogram(PluginHandler):
@@ -25,8 +24,6 @@ class MakeHistogram(PluginHandler):
         # convert image bytes to base64 string
         base_64_fig = base64.b64encode(bytes_fig).decode("utf-8")
 
-        url = await save_base64_image_to_s3_or_local(
-            base_64_fig, project_id, "png", "chart_maker/make_histogram"
-        )
+        url = await save_base64_image_to_s3_or_local(base_64_fig, project_id, "png", "chart_maker/make_histogram")
 
         return PluginOutput(data={"url": url})

@@ -72,7 +72,6 @@ class ModelSchema(BaseModel):
 
     @classmethod
     def build(cls, row: Dict):
-
         # todo: support more model types
 
         from .chat_completion import ChatCompletionModelProperties
@@ -141,7 +140,6 @@ def validate_model_info(
     properties_dict: Optional[Dict],
     model_type: Optional[ModelType],
 ) -> Tuple[ModelSchema, str, BaseModelProperties, ModelType]:
-
     """
     Validate the model info
     :param model_schema_id: the model schema id

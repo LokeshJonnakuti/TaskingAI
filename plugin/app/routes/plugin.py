@@ -7,7 +7,6 @@ router = APIRouter()
 
 
 class PluginListRequest(BaseModel):
-
     bundle_id: Optional[str] = Field(
         None,
         description="The bundle id.",
