@@ -1,6 +1,5 @@
 import pytest
 import json
-import asyncio
 from backend.tests.api_services.model.model import create_model, list_models, get_model, update_model, delete_model
 from backend.tests.common.config import CONFIG
 from backend.tests.common.utils import assume_model
@@ -8,7 +7,6 @@ from backend.tests.common.utils import assume_model
 
 @pytest.mark.web_test
 class TestModel:
-
     model_id = "TpUiB8O4"
 
     create_model_list = [
@@ -37,7 +35,7 @@ class TestModel:
             "name": "Rerank Model",
             "credentials": {"COHERE_API_KEY": CONFIG.COHERE_API_KEY},
         },
-    {
+        {
             "host_type": "provider",
             "name": "Debug Error Model",
             "model_schema_id": "debug/debug-error",
@@ -158,7 +156,6 @@ class TestModel:
     @pytest.mark.asyncio
     @pytest.mark.parametrize("create_model_data", create_model_list)
     async def test_create_model(self, create_model_data):
-
         create_model_data.pop("host_type", None)
 
         res = await create_model(create_model_data)
@@ -200,11 +197,9 @@ class TestModel:
         assert get_res_json.get("data").get("model_schema_id") == create_model_data["model_schema_id"]
         assume_model(get_res, create_model_data)
 
-
     @pytest.mark.asyncio
     @pytest.mark.run(order=113)
     async def test_list_models(self):
-
         list_model_data_list = [
             {
                 "limit": 10,
@@ -221,7 +216,7 @@ class TestModel:
                 "limit": 10,
                 "order": "desc",
                 "after": TestModel.model_id,
-            }
+            },
         ]
 
         for index, list_model_data in enumerate(list_model_data_list):
@@ -241,13 +236,11 @@ class TestModel:
                     for key in prefix_filter_dict:
                         assert res_json.get("data")[0].get(key).startswith(prefix_filter_dict.get(key))
             if index == 2:
-
                 assert len(res_json.get("data")) == 5
                 assert res_json.get("fetched_count") == 5
                 for model in res_json.get("data"):
                     assert model.get("type") == "chat_completion"
             if index == 3:
-
                 assert len(res_json.get("data")) == 8
                 assert res_json.get("fetched_count") == 8
 
@@ -257,7 +250,6 @@ class TestModel:
     @pytest.mark.run(order=114)
     @pytest.mark.parametrize("create_model_data", create_model_list[:4])
     async def test_create_model_with_fallbacks(self, create_model_data):
-
         if create_model_data.get("name") == "Openai Text Embedding Model":
             create_model_data.update(
                 {"fallbacks": {"model_list": [{"model_id": CONFIG.togetherai_text_embedding_model_id}]}}
@@ -313,17 +305,14 @@ class TestModel:
         res = await get_model(TestModel.model_id)
         res_json = res.json()
 
-
         assert res.status_code == 200, res.json()
         assert res_json.get("status") == "success"
         assert res_json.get("data").get("model_id") == TestModel.model_id
-
 
     @pytest.mark.asyncio
     @pytest.mark.run(order=115)
     @pytest.mark.parametrize("update_model_data", update_model_list)
     async def test_update_model(self, update_model_data):
-
         update_model_data.pop("host_type", None)
 
         res = await update_model(CONFIG.chat_completion_model_id, update_model_data)
@@ -344,15 +333,14 @@ class TestModel:
     @pytest.mark.asyncio
     @pytest.mark.run(order=115)
     async def test_update_model_with_fallbacks(self):
-
         update_model_data = {
-                "type": "chat_completion",
-                "fallbacks": {
-                    "model_list": [
-                        {"model_id": CONFIG.fallbacks_chat_completion_model_id},
-                    ]
-                },
-            }
+            "type": "chat_completion",
+            "fallbacks": {
+                "model_list": [
+                    {"model_id": CONFIG.fallbacks_chat_completion_model_id},
+                ]
+            },
+        }
 
         res = await update_model(CONFIG.chat_completion_model_id, update_model_data)
         res_json = res.json()
@@ -372,7 +360,6 @@ class TestModel:
     @pytest.mark.asyncio
     @pytest.mark.run(order=240)
     async def test_delete_model(self):
-
         res = await delete_model(TestModel.model_id)
         res_json = res.json()
         assert res.status_code == 200, res.json()
@@ -383,4 +370,3 @@ class TestModel:
         assert get_res.status_code == 404, get_res.json()
         assert get_res_json.get("status") == "error"
         assert get_res_json.get("error").get("code") == "OBJECT_NOT_FOUND"
-

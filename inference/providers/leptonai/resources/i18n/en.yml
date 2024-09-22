@@ -3,7 +3,6 @@ leptonai_description: "Lepton AI is a cloud-native AI platform that offers a ran
 
 leptonai_api_key_description: "Your LeptonAI API Key for authentication."
 
-
 gemma_7b_name: "Gemma 7b"
 gemma_7b_description: "The Gemma model was proposed in Gemma: Open Models Based on Gemini Technology and Research by Gemma Team, Google. Gemma models are trained on 6T tokens, and released with 2 versions, 2b and 7b."
 
@@ -30,7 +29,6 @@ nous_hermes_llama2_13b_description: "Nous-Hermes 13B is an advanced AI language 
 
 openchat_3_5_name: "OpenChat 3.5"
 openchat_3_5_description: "OpenChat 3.5 is a sophisticated AI language model designed for advanced conversational abilities, offering improved natural language understanding and generation, enhanced contextual awareness, and robust multilingual support, with a focus on providing efficient, coherent, and ethical interactions."
-
 
 toppy_m_7b_name: "Toppy M 7B"
 toppy_m_7b_description: "Toppy M 7B is a state-of-the-art AI language model featuring 7 billion parameters, designed for advanced natural language processing tasks, providing high-quality text comprehension and generation, multilingual capabilities, and efficient, ethical performance in various applications."

@@ -1,7 +1,5 @@
 import pytest
 import json
-import datetime
-from dateutil.relativedelta import relativedelta
 from typing import Dict
 import string
 import os
@@ -115,7 +113,9 @@ def assume_auth(res, auth_dict: Dict):
 
 
 def get_password():
-    return "".join(secrets.SystemRandom().choices(string.ascii_letters, k=7)) + str(secrets.SystemRandom().randint(0, 9))
+    return "".join(secrets.SystemRandom().choices(string.ascii_letters, k=7)) + str(
+        secrets.SystemRandom().randint(0, 9)
+    )
 
 
 def assume_user_profile(res, user_dict: Dict):

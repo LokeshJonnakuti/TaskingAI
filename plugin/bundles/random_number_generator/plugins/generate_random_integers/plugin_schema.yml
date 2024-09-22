@@ -25,8 +25,8 @@ output_schema:
     type: integer_array
 test:
   cases:
-  - input:
-      max: 10
-      min: 1
-      number: 5
+    - input:
+        max: 10
+        min: 1
+        number: 5
   mode: schema

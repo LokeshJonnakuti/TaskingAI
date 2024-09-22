@@ -2,6 +2,7 @@ import os
 import importlib
 from typing import List
 import logging
+
 logger = logging.getLogger(__name__)
 
 __all__ = [
@@ -45,4 +46,6 @@ def load_all_chat_completion_models(provider_ids: List[str]):
                 get_chat_completion_model(provider_id)
                 logger.info(f"Loaded chat completion models from {provider_id}")
             except Exception as e:
-                logger.error(f"load_all_chat_completion_models: Error loading chat completion models from {provider_id}: {e}")
+                logger.error(
+                    f"load_all_chat_completion_models: Error loading chat completion models from {provider_id}: {e}"
+                )

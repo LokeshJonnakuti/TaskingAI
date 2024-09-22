@@ -1,19 +1,15 @@
 import pytest
 
 from backend.tests.api_services.model.model_schemas import list_model_schemas, get_model_schema
-from backend.tests.common.config import CONFIG
 
 
 @pytest.mark.web_test
 class TestModelSchemas:
-
-
     model_schema_id = "openai/gpt-3.5-turbo"
 
     @pytest.mark.asyncio
     @pytest.mark.run(order=111)
     async def test_list_model_schemas(self):
-
         list_model_schemas_data = {"limit": 30, "offset": 0, "provider_id": "openai", "type": "chat_completion"}
         res = await list_model_schemas(list_model_schemas_data)
         res_json = res.json()
@@ -27,11 +23,9 @@ class TestModelSchemas:
             assert model_schema.get("type") in ["chat_completion", "wildcard"]
         TestModelSchemas.model_schema_id = res_json.get("data")[0]["model_schema_id"]
 
-
     @pytest.mark.asyncio
     @pytest.mark.run(order=112)
     async def test_get_model_schema(self):
-
         params = {"model_schema_id": TestModelSchemas.model_schema_id}
         res = await get_model_schema(params)
         res_json = res.json()

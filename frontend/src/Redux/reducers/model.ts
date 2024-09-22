@@ -2,35 +2,35 @@ const initialState = {
   loading: false,
   modelLists: { data: [] },
   loaded: false,
-  error: '',
+  error: "",
 };
 
 const modelReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case 'FETCH_MODEL_REQUEST':
+    case "FETCH_MODEL_REQUEST":
       return {
         ...state,
         loading: true,
       };
-    case 'FETCH_MODEL_SUCCESS':
+    case "FETCH_MODEL_SUCCESS":
       return {
         loading: false,
         loaded: true,
         modelLists: action.payload,
-        error: '',
+        error: "",
       };
-    case 'FETCH_MODEL_FAILURE':
+    case "FETCH_MODEL_FAILURE":
       return {
         loading: false,
         modelLists: { data: [] },
         error: action.payload,
       };
-    case 'SET_LOADING':
+    case "SET_LOADING":
       return {
         ...state,
         loading: action.payload,
       };
-    case 'SET_LOADED':
+    case "SET_LOADED":
       return {
         ...state,
         loaded: action.payload,

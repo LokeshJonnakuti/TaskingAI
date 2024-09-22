@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      name: Gold Futures
+    - input:
+        name: Gold Futures
   mode: schema

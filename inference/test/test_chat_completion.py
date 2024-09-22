@@ -11,7 +11,6 @@ from .utils.utils import generate_test_cases, generate_wildcard_test_cases, is_p
 @allure.epic("inference_service")
 @allure.feature("chat_completion")
 class TestChatCompletion:
-
     proxy_list = [
         {
             "model_schema_id": "openai/gpt-4o",

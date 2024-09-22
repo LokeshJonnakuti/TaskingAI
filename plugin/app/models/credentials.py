@@ -7,7 +7,6 @@ __all__ = ["BundleCredentials", "validate_bundle_credentials"]
 
 
 class BundleCredentials(BaseModel):
-
     credentials: Dict[str, str] = Field({})
 
     def __getattr__(self, item):

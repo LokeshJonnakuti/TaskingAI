@@ -9,7 +9,6 @@ __all__ = ["ProviderCredentials", "validate_credentials"]
 
 
 class ProviderCredentials(BaseModel):
-
     credentials: Dict[str, str] = Field({})
 
     def __getattr__(self, item):

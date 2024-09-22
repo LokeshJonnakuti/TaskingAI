@@ -1,14 +1,11 @@
-import base64
 import json
-from io import BytesIO
 
-import aiohttp
-from PIL import Image
 from aiohttp import ClientSession
 
 from app.service.image_load import fetch_image_format, get_image_base64_string
 from bundle_dependency import *
 from config import CONFIG
+
 
 class ChatCompletionByGemini10Pro(PluginHandler):
     async def execute(self, credentials: BundleCredentials, plugin_input: PluginInput) -> PluginOutput:
@@ -51,6 +48,3 @@ class ChatCompletionByGemini10Pro(PluginHandler):
                 else:
                     response_json = await response.json()
                     raise_provider_api_error(json.dumps(response_json))
-
-
-

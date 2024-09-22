@@ -53,7 +53,6 @@ class RunToolRequest(BaseModel):
 
     @model_validator(mode="before")
     def validate_before(cls, data: Any):
-
         # validate bundle credentials
         credentials = validate_bundle_credentials(data)
         data["credentials"] = credentials
@@ -63,7 +62,6 @@ class RunToolRequest(BaseModel):
 
     @model_validator(mode="after")
     def validate_after(cls, data: Any):
-
         # validate plugin_id
         plugin = get_plugin(
             bundle_id=data.bundle_id,

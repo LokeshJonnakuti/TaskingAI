@@ -22,7 +22,6 @@ def __load_plugin_handler_class(bundle_id: str, plugin_schema_id: str):
 
 
 def get_plugin_handler(bundle_id: str, plugin_id: str):
-
     """
     Get the plugin handler for the given bundle id and plugin id.
     :param bundle_id: bundle id.
@@ -48,7 +47,6 @@ def get_plugin_handler(bundle_id: str, plugin_id: str):
 
 # Automatically search and import all providers
 def load_all_plugin_handlers(bundle_plugin_ids: Dict[str, List[str]]):
-
     """
     Load all plugin handlers from the given bundle plugin ids.
     :param bundle_plugin_ids: a dictionary of bundle ids and a list of plugin ids.
