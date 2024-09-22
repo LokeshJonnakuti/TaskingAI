@@ -2,8 +2,8 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from base64 import b64encode, b64decode
 import string
-import random
 from config import CONFIG
+import secrets
 
 AES_ENCRYPTION_KEY_BYTES = bytes.fromhex(CONFIG.AES_ENCRYPTION_KEY)
 
@@ -22,7 +22,7 @@ def generate_random_id(length):
     :return: The random ID consisting of uppercase letters, lowercase letters, and digits.
     """
     letters = string.ascii_uppercase + string.ascii_lowercase + string.digits
-    return "".join(random.choice(letters) for _ in range(length))
+    return "".join(secrets.choice(letters) for _ in range(length))
 
 
 def aes_encrypt(plain_text: str):

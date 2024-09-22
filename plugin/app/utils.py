@@ -1,6 +1,5 @@
 import time
 import string
-import random
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from base64 import b64encode, b64decode
@@ -8,6 +7,7 @@ from config import CONFIG
 from app.error import ErrorCode, raise_http_error
 import hashlib
 import json
+import secrets
 
 AES_ENCRYPTION_KEY_BYTES = bytes.fromhex(CONFIG.AES_ENCRYPTION_KEY)
 LOWEST_MAX_TOKENS = 3
@@ -28,7 +28,7 @@ def get_current_timestamp_int():
 
 def generate_random_id(length):
     letters = string.ascii_uppercase + string.ascii_lowercase + string.digits
-    return "".join(random.choice(letters) for _ in range(length))
+    return "".join(secrets.choice(letters) for _ in range(length))
 
 
 def generate_random_function_call_id():

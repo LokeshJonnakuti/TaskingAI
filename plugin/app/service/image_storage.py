@@ -1,7 +1,6 @@
 import base64
 import os
 import string
-import random
 
 from aiohttp import ClientSession
 import aioboto3
@@ -10,6 +9,7 @@ from app.error import raise_provider_api_error, raise_http_error, ErrorCode
 from config import CONFIG
 
 from datetime import datetime
+import secrets
 
 
 def base62_encode(num):
@@ -40,7 +40,7 @@ def get_base62_date():
 def generate_random_id(length):
     first_letter = string.ascii_uppercase + string.ascii_lowercase
     letters = string.ascii_uppercase + string.ascii_lowercase + string.digits
-    return random.choice(first_letter) + "".join(random.choice(letters) for _ in range(length - 1))
+    return secrets.choice(first_letter) + "".join(secrets.choice(letters) for _ in range(length - 1))
 
 
 def save_base64_image(image_data: str, file_format="png", specific_path=None):

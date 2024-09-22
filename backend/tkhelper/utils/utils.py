@@ -1,11 +1,11 @@
 import string
-import random
 import datetime
 from typing import Dict, Any
 from enum import Enum
 import json
 from starlette.requests import Request
 from fastapi import HTTPException
+import secrets
 
 __all__ = [
     "generate_random_id",
@@ -21,7 +21,7 @@ __all__ = [
 def generate_random_id(length):
     first_letter = string.ascii_uppercase + string.ascii_lowercase
     letters = string.ascii_uppercase + string.ascii_lowercase + string.digits
-    return random.choice(first_letter) + "".join(random.choice(letters) for _ in range(length - 1))
+    return secrets.choice(first_letter) + "".join(secrets.choice(letters) for _ in range(length - 1))
 
 
 def current_timestamp_int_milliseconds():
