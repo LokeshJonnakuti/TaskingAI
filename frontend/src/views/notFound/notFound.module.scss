@@ -1,70 +1,70 @@
 .div {
+  position: relative;
+  background-color: var(--base-white);
+  margin: auto;
+  text-align: center;
+  font-size: 60px;
+  color: var(--color-text-primary);
+  font-family: var(--text-single-100-regular);
+
+  .illustration-icon {
     position: relative;
-    background-color: var(--base-white);
-    margin: auto;
-    text-align: center;
-    font-size: 60px;
-    color: var(--color-text-primary);
-    font-family: var(--text-single-100-regular);
+    width: 602px;
+    height: 248px;
+    object-fit: cover;
+  }
 
-    .illustration-icon {
-        position: relative;
-        width: 602px;
-        height: 248px;
-        object-fit: cover;
-    }
+  .title {
+    position: relative;
+    letter-spacing: -0.02em;
+    line-height: 72px;
+    font-weight: 600;
+  }
 
-    .title {
-        position: relative;
-        letter-spacing: -0.02em;
-        line-height: 72px;
-        font-weight: 600;
-    }
+  .subtitle {
+    position: relative;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
 
-    .subtitle {
-        position: relative;
-        font-size: 20px;
-        line-height: 30px;
-        font-weight: 500;
-        color: var(--color-text-secondary);
-    }
+  .title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .text {
+    position: relative;
+    line-height: 28px;
+    color: var(--color-invert-text);
+  }
+  .frame,
+  .home-button {
+    display: flex;
+    align-items: center;
+  }
 
-    .title-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 24px;
-    }
-    .text {
-        position: relative;
-        line-height: 28px;
-        color:var(--color-invert-text);
-    }
-    .frame,
-    .home-button {
-        display: flex;
-        align-items: center;
-    }
+  .home-button {
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    box-shadow: var(--shadow-xs);
+    border: 1px solid var(--color-primary);
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: center;
+    padding: 16px 24px;
+    text-align: left;
+    font-size: 30px;
+    color: var(--base-white);
+    width: 180px;
+  }
 
-    .home-button {
-        border-radius: 8px;
-        background-color: var(--color-primary);
-        box-shadow: var(--shadow-xs);
-        border: 1px solid var(--color-primary);
-        overflow: hidden;
-        flex-direction: row;
-        justify-content: center;
-        padding: 16px 24px;
-        text-align: left;
-        font-size: 30px;
-        color: var(--base-white);
-        width: 180px;
-    }
-
-    .frame {
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 48px;
-    }
+  .frame {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 48px;
+  }
 }

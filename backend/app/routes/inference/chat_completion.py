@@ -71,6 +71,7 @@ async def api_chat_completion(
                 if data.stream:
                     if not model.allow_streaming():
                         raise_request_validation_error(f"Model {model.model_id} does not support streaming.")
+
                     async def generator(sse_chunk_dicts):
                         async for chunk_dict in sse_chunk_dicts:
                             yield f"data: {json.dumps(chunk_dict)}\n\n"

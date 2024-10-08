@@ -1,7 +1,7 @@
 import json
 
-from pydantic import BaseModel, Field
-from typing import Dict, Optional, List
+from pydantic import BaseModel
+from typing import Dict
 from app.utils import i18n_text
 from config import CONFIG
 
@@ -37,7 +37,7 @@ class Bundle(BaseModel):
             name=bundle_dict["name"],
             description=bundle_dict["description"],
             credentials_schema=bundle_dict.get("credentials_schema", {}),
-            icon_url=f"{CONFIG.ICON_URL_PREFIX}/images/plugins/bundles/icons/{bundle_id}.png"
+            icon_url=f"{CONFIG.ICON_URL_PREFIX}/images/plugins/bundles/icons/{bundle_id}.png",
         )
 
     def to_dict(self, lang: str):
@@ -66,14 +66,11 @@ class Bundle(BaseModel):
         return [k for k in self.credentials_schema]
 
     def required_credential_names(self):
-        return [
-            k for k in self.credentials_schema
-            if self.credentials_schema[k].get("required", False)
-        ]
+        return [k for k in self.credentials_schema if self.credentials_schema[k].get("required", False)]
+
 
 class BundleEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, Bundle):
-            return obj.to_dict('en')
+            return obj.to_dict("en")
         return json.JSONEncoder.default(self, obj)
-

@@ -7,7 +7,6 @@ search_text_output_results_description: "The search results in json format"
 search_text_name: "Search Text"
 search_text_description: "Search for textual information using DuckDuckGo."
 
-
 search_image_input_keywords_name: "Key words"
 search_image_input_keywords_description: "The key words to search for"
 search_image_output_results_name: "Results"

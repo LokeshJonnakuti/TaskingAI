@@ -60,6 +60,7 @@ def add_openai_routes(route_prefix: str):
     routes.include_router(openai_chat_completion_router, prefix=route_prefix)
     routes.include_router(openai_text_embedding_router, prefix=route_prefix)
 
+
 def add_assistant_routes(route_prefix: str):
     from app.routes.assistant.generation import router as generation_router
 

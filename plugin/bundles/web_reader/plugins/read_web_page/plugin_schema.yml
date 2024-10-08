@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      url: https://www.adaprox.io
+    - input:
+        url: https://www.adaprox.io
   mode: schema

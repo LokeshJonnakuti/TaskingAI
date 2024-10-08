@@ -20,7 +20,7 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      category: restaurants
-      query: Italian food in New York
+    - input:
+        category: restaurants
+        query: Italian food in New York
   mode: schema

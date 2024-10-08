@@ -10,7 +10,6 @@ properties:
   input_token_limit: 512
   max_batch_size: 1
 
-
 config_schemas:
 
 pricing:

@@ -4,7 +4,6 @@ from app.models import ModelType
 
 
 class VerifyModelCredentialsSchema(BaseModel):
-
     model_schema_id: str = Field(
         ...,
         min_length=1,

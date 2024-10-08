@@ -32,7 +32,6 @@ router = APIRouter()
 async def api_verify_credentials(
     data: VerifyModelCredentialsSchema,
 ):
-
     model_infos = [
         validate_model_info(
             model_schema_id=data.model_schema_id,

@@ -25,8 +25,8 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      days: 3
-      lat: 30.25
-      lon: 120.166
+    - input:
+        days: 3
+        lat: 30.25
+        lon: 120.166
   mode: schema

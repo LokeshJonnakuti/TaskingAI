@@ -10,16 +10,14 @@ if not os.path.exists(LOG_PATH):
 
 
 class Logger:
-
     def __init__(self):
         self.log_name = os.path.join(LOG_PATH, "{}.log".format(time.strftime("%Y%m%d")))
         self.logger = logging.getLogger("log")
         self.logger.setLevel(logging.DEBUG)
 
-        self.formatter = logging.Formatter(
-            '[%(asctime)s][%(filename)s %(lineno)d][%(levelname)s]: %(message)s')
+        self.formatter = logging.Formatter("[%(asctime)s][%(filename)s %(lineno)d][%(levelname)s]: %(message)s")
 
-        self.file_logger = logging.FileHandler(self.log_name, mode='a', encoding="UTF-8")
+        self.file_logger = logging.FileHandler(self.log_name, mode="a", encoding="UTF-8")
         self.console = logging.StreamHandler()
         self.console.setLevel(logging.DEBUG)
         self.file_logger.setLevel(logging.DEBUG)

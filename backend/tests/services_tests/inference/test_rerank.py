@@ -7,7 +7,6 @@ from backend.tests.common.utils import check_order
 
 @pytest.mark.api_test
 class TestRerank:
-
     query = "Organic skincare products for sensitive skin"
     documents = [
         "Eco-friendly kitchenware for modern homes",

@@ -13,7 +13,6 @@ credentials_schema:
   required:
     - LLAMA_API_API_KEY
 
-
 resources:
   taskingai_documentation_url: "https://docs.tasking.ai/docs/integration/models/language_models/llama_api"
   official_site_url: "https://www.llama-api.com/"

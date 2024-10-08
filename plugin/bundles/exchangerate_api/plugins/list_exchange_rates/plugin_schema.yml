@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      base_currency: USD
+    - input:
+        base_currency: USD
   mode: schema

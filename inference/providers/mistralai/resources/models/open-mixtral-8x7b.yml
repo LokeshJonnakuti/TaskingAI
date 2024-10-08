@@ -15,7 +15,7 @@ config_schemas:
   - config_id: response_format
 
 pricing:
- input_token: 0.7
- output_token: 0.7
- unit: 1000000
- currency: USD
+  input_token: 0.7
+  output_token: 0.7
+  unit: 1000000
+  currency: USD

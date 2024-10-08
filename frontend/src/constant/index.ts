@@ -1,4 +1,4 @@
-import { AxiosResponse } from 'axios';
+import { AxiosResponse } from "axios";
 
 interface ApiErrorResponse {
   response: {
@@ -48,7 +48,6 @@ interface ChildRefType {
 interface formDataType {
   properties: any;
   required: Array<string>;
-
 }
 interface promptListType {
   model_schema_id: string;
@@ -56,14 +55,14 @@ interface promptListType {
   type: string;
   name: string;
   properties: any;
-  description: string
+  description: string;
 }
 interface ModelProviderType {
   provider_id: string;
   name: string;
-  num_model_schemas:number,
-  description: string,
-  model_types: string[],
+  num_model_schemas: number;
+  description: string;
+  model_types: string[];
 }
 interface modelModalProps {
   handleSetModelOne: (value: any) => void;
@@ -92,7 +91,10 @@ interface TableProps {
   onOpenDrawer?: (value: any) => void;
   name?: string;
   title?: string;
-  handleRecordsSelected?: (selectedRowKeys: string[], selectedRows: RecordType[]) => void;
+  handleRecordsSelected?: (
+    selectedRowKeys: string[],
+    selectedRows: RecordType[],
+  ) => void;
   isShowNewCreateButton?: boolean;
 }
 interface deleteProjectType {
@@ -102,7 +104,7 @@ interface deleteProjectType {
   onDeleteConfirm: () => void;
   onDeleteCancel: () => void;
   describe: string;
-  buttonType?: string
+  buttonType?: string;
 }
 interface ModalFooterEndProps {
   onCancel: () => void;
@@ -114,5 +116,22 @@ interface FullApiResponse extends AxiosResponse {
   has_more: boolean;
 }
 interface CreateAssistantProps {}
-export type { MenuClickEvent,FullApiResponse,CreateAssistantProps, ModalFooterEndProps, deleteProjectType, modelModalProps, TableProps, promptListType, ModelProviderType, ProjectType, editUserProfileType, projectHomeType, RecordType, projectIdType, ChildRefType, formDataType }
-export default ApiErrorResponse
+export type {
+  MenuClickEvent,
+  FullApiResponse,
+  CreateAssistantProps,
+  ModalFooterEndProps,
+  deleteProjectType,
+  modelModalProps,
+  TableProps,
+  promptListType,
+  ModelProviderType,
+  ProjectType,
+  editUserProfileType,
+  projectHomeType,
+  RecordType,
+  projectIdType,
+  ChildRefType,
+  formDataType,
+};
+export default ApiErrorResponse;

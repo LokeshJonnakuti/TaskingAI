@@ -13,7 +13,6 @@ credentials_schema:
   required:
     - HUGGING_FACE_API_KEY
 
-
 resources:
   taskingai_documentation_url: "https://docs.tasking.ai/docs/integration/models/language_models/hugging-face"
   official_site_url: "https://huggingface.co/"

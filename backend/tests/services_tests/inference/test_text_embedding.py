@@ -6,7 +6,6 @@ from backend.tests.common.config import CONFIG
 
 @pytest.mark.api_test
 class TestTextEmbedding:
-
     input_list = [{"input": "hello, nice to meet you"}, {"input": ["hello, nice to meet you", "i'm fine thank you"]}]
 
     long_list_text = {"input": ["*" * 600, "!" * 600]}
@@ -23,7 +22,6 @@ class TestTextEmbedding:
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("inference_001-002")
     async def test_text_embedding(self, input_data):
-
         text_embedding_model_id_list = [
             CONFIG.text_embedding_model_id,
             CONFIG.togetherai_text_embedding_model_id,
@@ -46,7 +44,6 @@ class TestTextEmbedding:
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("inference_004")
     async def test_text_embedding_with_long_list_text(self):
-
         text_embedding_model_id_list = [
             CONFIG.text_embedding_model_id,
             CONFIG.togetherai_text_embedding_model_id,
@@ -64,19 +61,16 @@ class TestTextEmbedding:
             for item in res_json.get("data"):
                 assert all(isinstance(value, float) for value in item.get("embedding"))
 
-
     @pytest.mark.run(order=123)
     @pytest.mark.asyncio
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("inference_004")
     async def test_text_embedding_with_empty_list_text(self):
-
         text_embedding_model_id_list = [
             CONFIG.text_embedding_model_id,
             CONFIG.togetherai_text_embedding_model_id,
             CONFIG.custom_host_text_embedding_model_id,
             CONFIG.fallbacks_text_embedding_model_id,
-
         ]
 
         for model_id in text_embedding_model_id_list:
@@ -95,13 +89,11 @@ class TestTextEmbedding:
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("inference_003")
     async def test_error_text_embedding(self, input_data):
-
         text_embedding_model_id_list = [
             CONFIG.text_embedding_model_id,
             CONFIG.togetherai_text_embedding_model_id,
             CONFIG.custom_host_text_embedding_model_id,
             CONFIG.fallbacks_text_embedding_model_id,
-
         ]
 
         for model_id in text_embedding_model_id_list:

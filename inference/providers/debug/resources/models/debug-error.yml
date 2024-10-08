@@ -5,7 +5,6 @@ name: "i18n:debug_error_name"
 description: "i18n:debug_error_description"
 default_endpoint_url:
 
-
 properties:
   function_call: false
   streaming: true

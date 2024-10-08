@@ -7,17 +7,19 @@ We, as members, contributors, and leaders of TaskingAI, pledge to make participa
 ## Our Standards
 
 Examples of positive behavior:
-* Demonstrating empathy and kindness
-* Respect for differing opinions, viewpoints, and experiences
-* Accepting constructive feedback
-* Taking responsibility for our actions
+
+- Demonstrating empathy and kindness
+- Respect for differing opinions, viewpoints, and experiences
+- Accepting constructive feedback
+- Taking responsibility for our actions
 
 Unacceptable behavior includes:
-* Sexualized language or imagery, unwanted sexual attention or advances
-* Trolling, insulting comments, and personal or political attacks
-* Public or private harassment
-* Publishing private information without permission
-* Conduct inappropriate in a professional setting
+
+- Sexualized language or imagery, unwanted sexual attention or advances
+- Trolling, insulting comments, and personal or political attacks
+- Public or private harassment
+- Publishing private information without permission
+- Conduct inappropriate in a professional setting
 
 ## Enforcement
 

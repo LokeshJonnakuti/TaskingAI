@@ -6,7 +6,7 @@ reka_api_key_description: "Your Reka API Key for authentication."
 reka_edge_name: "Reka Edge"
 reka_edge_description: "Lightweight model for local (i.e., on-hardware) or latency sensitive applications."
 
-reka_flash_name:  "Reka Flash"
+reka_flash_name: "Reka Flash"
 reka_flash_description: "Fast and cost-efficient model for most tasks."
 
 reka_core_name: "Reka Core"

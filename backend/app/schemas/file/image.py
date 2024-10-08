@@ -6,9 +6,7 @@ __all__ = ["UploadImageResponse"]
 
 
 class UploadImageResponse(BaseModel):
-    status: str = Field(
-        "success", Literal="success", description="The status of the response."
-    )
+    status: str = Field("success", Literal="success", description="The status of the response.")
     data: ImageData = Field(
         ...,
         description="The image data.",

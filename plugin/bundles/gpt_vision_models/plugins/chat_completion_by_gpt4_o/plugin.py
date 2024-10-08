@@ -1,11 +1,10 @@
-import base64
 
-import aiohttp
 from aiohttp import ClientSession
 
 from app.service.image_load import fetch_image_format, image_url_is_on_localhost, get_image_base64_string
 from bundle_dependency import *
 from config import CONFIG
+
 
 async def construct_image_data(image_url: str) -> dict:
     if image_url_is_on_localhost(image_url):
@@ -15,10 +14,11 @@ async def construct_image_data(image_url: str) -> dict:
         return {"type": "image_url", "image_url": {"url": f"data:image/{image_format};base64,{base64_string}"}}
 
     # Normal image url
-    if 'http' in image_url:
+    if "http" in image_url:
         return {"type": "image_url", "image_url": {"url": image_url}}
 
     raise_http_error(ErrorCode.REQUEST_VALIDATION_ERROR, "Invalid image url.")
+
 
 class ChatCompletionByGpt4O(PluginHandler):
     async def execute(self, credentials: BundleCredentials, plugin_input: PluginInput) -> PluginOutput:

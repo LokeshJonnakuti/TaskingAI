@@ -11,13 +11,11 @@ router = APIRouter()
 
 
 class VerifyCredentialsRequest(BaseModel):
-
     bundle_id: str = Field(..., min_length=1, max_length=50)
     credentials: BundleCredentials = Field(..., description="The credentials of the model provider.")
 
     @model_validator(mode="before")
     def validate_before(cls, data: Any):
-
         # validate bundle credentials
         credentials = validate_bundle_credentials(data)
         data["credentials"] = credentials
@@ -40,7 +38,6 @@ async def api_verify_credentials(
         raise_http_error(ErrorCode.OBJECT_NOT_FOUND, f"Bundle {data.bundle_id} not found.")
 
     try:
-
         await bundle_handler.verify(data.credentials)
 
     except TKHttpException as e:
