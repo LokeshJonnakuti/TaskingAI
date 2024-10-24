@@ -2,6 +2,7 @@ import os
 import requests
 import time
 from dotenv import load_dotenv
+from security import safe_requests
 
 load_dotenv()
 
@@ -233,16 +234,16 @@ class Config:
     def get_apikey(self, apikey_url, apikey_data, token):
         from backend.tests.common.utils import get_headers
 
-        apikeys = requests.get(apikey_url, headers=get_headers(token))
+        apikeys = safe_requests.get(apikey_url, headers=get_headers(token))
         apikeys_data = apikeys.json()["data"]
         if len(apikeys_data) > 0:
             apikey_id = apikeys_data[0]["apikey_id"]
-            apikey_res = requests.get(f"{apikey_url}/{apikey_id}", headers=get_headers(token), params={"plain": True})
+            apikey_res = safe_requests.get(f"{apikey_url}/{apikey_id}", headers=get_headers(token), params={"plain": True})
             return apikey_res.json()["data"]["apikey"]
         else:
             create_apikey_res = requests.post(apikey_url, headers=get_headers(token), json=apikey_data)
             apikey_id = create_apikey_res.json()["data"]["apikey_id"]
-            apikey_res = requests.get(f"{apikey_url}/{apikey_id}", headers=get_headers(token), params={"plain": True})
+            apikey_res = safe_requests.get(f"{apikey_url}/{apikey_id}", headers=get_headers(token), params={"plain": True})
             return apikey_res.json()["data"]["apikey"]
 
     def create_bundle_instance(self, bundle_instance_url, bundle_instance_dict, token):
