@@ -13,14 +13,15 @@ class TripAdvisor(BundleHandler):
         TRIP_ADVISOR_API_KEY: str = credentials.credentials.get("TRIP_ADVISOR_API_KEY")
 
         query = urllib.parse.quote_plus(query)
-        url = f"https://api.content.tripadvisor.com/api/v1/location/search?key={TRIP_ADVISOR_API_KEY}&searchQuery={query}"
+        url = (
+            f"https://api.content.tripadvisor.com/api/v1/location/search?key={TRIP_ADVISOR_API_KEY}&searchQuery={query}"
+        )
 
         if category:
             url += f"&category={category}"
 
         async with ClientSession() as session:
             async with session.get(url=url, headers={"accept": "application/json"}, proxy=CONFIG.PROXY) as response:
-
                 if response.status == 200:
                     pass
                 else:

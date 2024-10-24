@@ -58,13 +58,12 @@ class TestChatCompletion:
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("inference_006")
     async def test_chat_completion_by_normal(self):
-
         chat_completion_model_id_list = [
             CONFIG.chat_completion_model_id,
             CONFIG.togetherai_chat_completion_model_id,
             CONFIG.custom_host_chat_completion_model_id,
             CONFIG.fallbacks_chat_completion_model_id,
-            CONFIG.fallbacks_debug_error_model_id
+            CONFIG.fallbacks_debug_error_model_id,
         ]
 
         for model_id in chat_completion_model_id_list:
@@ -91,14 +90,12 @@ class TestChatCompletion:
             assert res_json.get("data").get("message").get("content") is not None
             assert res_json.get("data").get("message").get("function_calls") is None
 
-
     @pytest.mark.run(order=122)
     @pytest.mark.asyncio
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("inference_008")
     @pytest.mark.test_id("inference_010")
     async def test_chat_completion_by_normal_function_call(self):
-
         chat_completion_model_id_list = [
             CONFIG.chat_completion_model_id,
             CONFIG.togetherai_chat_completion_model_id,
@@ -111,7 +108,7 @@ class TestChatCompletion:
                 "model_id": model_id,
                 "messages": [{"role": "user", "content": "what is 18794658 + 9731686"}],
                 "stream": "False",
-                     "configs": {
+                "configs": {
                     "temperature": 1.0,
                     "max_tokens": 100,
                     "top_p": 1.0,
@@ -150,13 +147,12 @@ class TestChatCompletion:
     @pytest.mark.run(order=123)
     @pytest.mark.asyncio
     async def test_chat_completion_by_normal_function_call_result(self):
-
         chat_completion_model_id_list = [
             CONFIG.chat_completion_model_id,
             CONFIG.togetherai_chat_completion_model_id,
             CONFIG.custom_host_chat_completion_model_id,
             CONFIG.fallbacks_chat_completion_model_id,
-            CONFIG.fallbacks_debug_error_model_id
+            CONFIG.fallbacks_debug_error_model_id,
         ]
         for model_id in chat_completion_model_id_list:
             chat_completion_data = {
@@ -189,7 +185,6 @@ class TestChatCompletion:
             assert res_json.get("data").get("message").get("content") is not None
             assert res_json.get("data").get("message").get("function_calls") is None
 
-
     @pytest.mark.run(order=124)
     @pytest.mark.asyncio
     async def test_chat_completion_by_normal_length(self):
@@ -198,7 +193,7 @@ class TestChatCompletion:
             CONFIG.togetherai_chat_completion_model_id,
             CONFIG.custom_host_chat_completion_model_id,
             CONFIG.fallbacks_chat_completion_model_id,
-            CONFIG.fallbacks_debug_error_model_id
+            CONFIG.fallbacks_debug_error_model_id,
         ]
 
         for model_id in chat_completion_model_id_list:
@@ -224,13 +219,12 @@ class TestChatCompletion:
     @pytest.mark.version("0.3.1")
     @pytest.mark.test_id("inference_005")
     async def test_chat_completion_by_stream(self):
-
         chat_completion_model_id_list = [
             CONFIG.chat_completion_model_id,
             CONFIG.togetherai_chat_completion_model_id,
             CONFIG.custom_host_chat_completion_model_id,
             CONFIG.fallbacks_chat_completion_model_id,
-            CONFIG.fallbacks_debug_error_model_id
+            CONFIG.fallbacks_debug_error_model_id,
         ]
 
         for model_id in chat_completion_model_id_list:
@@ -259,7 +253,6 @@ class TestChatCompletion:
 
             assert default, "stream failed"
 
-
     @pytest.mark.run(order=126)
     @pytest.mark.asyncio
     @pytest.mark.version("0.3.1")
@@ -267,7 +260,6 @@ class TestChatCompletion:
     @pytest.mark.test_id("inference_009")
     @pytest.mark.test_id("inference_011")
     async def test_chat_completion_by_stream_and_function_call(self):
-
         chat_completion_model_id_list = [
             CONFIG.chat_completion_model_id,
             CONFIG.togetherai_chat_completion_model_id,
@@ -316,7 +308,7 @@ class TestChatCompletion:
             CONFIG.togetherai_chat_completion_model_id,
             CONFIG.custom_host_chat_completion_model_id,
             CONFIG.fallbacks_chat_completion_model_id,
-            CONFIG.fallbacks_debug_error_model_id
+            CONFIG.fallbacks_debug_error_model_id,
         ]
 
         for model_id in chat_completion_model_id_list:
@@ -421,13 +413,11 @@ class TestChatCompletion:
             assert res.json().get("status") == "error"
             assert res.json().get("error").get("code") == "PROVIDER_ERROR"
 
-
     @pytest.mark.run(order=130)
     @pytest.mark.asyncio
     @pytest.mark.version("0.3.0")
     @pytest.mark.test_id("model_041")
     async def test_chat_completion_by_not_support_stream(self):
-
         chat_completion_data = {
             "model_id": CONFIG.not_stream_wildcard_chat_completion_model_id,
             "messages": [{"role": "user", "content": "Hello, nice to meet you, what is your name"}],

@@ -12,7 +12,6 @@ properties:
 
 config_schemas:
 
-
 pricing:
   input_token: 0
   unit: 1000

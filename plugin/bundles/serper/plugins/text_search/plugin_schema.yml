@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      query: TaskingAI
+    - input:
+        query: TaskingAI
   mode: schema

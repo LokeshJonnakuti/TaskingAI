@@ -6,7 +6,7 @@ from config import CONFIG
 
 class Youtube(BundleHandler):
     async def verify(self, credentials: BundleCredentials):
-        query: str = 'taskingai'
+        query: str = "taskingai"
         GOOGLE_API_KEY: str = credentials.credentials.get("GOOGLE_API_KEY")
 
         url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q={query}&key={GOOGLE_API_KEY}"

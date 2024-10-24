@@ -17,7 +17,6 @@ run_count = 0
 
 @pytest.mark.api_test
 class TestAction(Tool):
-
     create_action_data_list = [
         {
             "openapi_schema": {
@@ -188,14 +187,12 @@ class TestAction(Tool):
     @pytest.mark.asyncio
     @pytest.mark.parametrize("create_action_data", create_action_data_list)
     async def test_create_action(self, create_action_data):
-
         res = await create_action(create_action_data)
         res_json = res.json()
 
         assert res.status_code == 200, res.json()
         assert res_json.get("status") == "success"
         for action in res_json.get("data"):
-
             assume_action(res_json.get("data")[0], create_action_data)
             TestAction.action_ids.append(action.get("action_id"))
             TestAction.action_names.append(action.get("name"))
@@ -209,13 +206,9 @@ class TestAction(Tool):
 
             assume_action(get_res_json.get("data"), create_action_data)
 
-
     @pytest.mark.run(order=162)
     @pytest.mark.asyncio
     async def test_list_actions(self):
-
-
-
         list_action_data_list = [
             {"limit": 10, "order": "desc", "after": TestAction.action_ids[1]},
             {"limit": 10, "order": "asc", "prefix_filter": json.dumps({"name": TestAction.action_names[1][:8]})},
@@ -242,23 +235,18 @@ class TestAction(Tool):
                 for key in prefix_filter_dict:
                     assert res_json.get("data")[0].get(key).startswith(prefix_filter_dict.get(key))
 
-
     @pytest.mark.run(order=163)
     @pytest.mark.asyncio
     async def test_get_action(self):
-
-
         res = await get_action(TestAction.action_ids[0])
         res_json = res.json()
         assert res.status_code == 200, res.json()
         assert res_json.get("status") == "success"
         assert res_json.get("data").get("action_id") == TestAction.action_ids[0]
 
-
     @pytest.mark.run(order=164)
     @pytest.mark.asyncio
     async def test_run_action(self):
-
         run_res = await run_action(TestAction.action_ids[1], TestAction.run_action_data_list[0])
 
         run_res_json = run_res.json()
@@ -266,11 +254,9 @@ class TestAction(Tool):
         assert run_res_json.get("status") == "success"
         assert run_res_json.get("data").get("status") == 200
 
-
     @pytest.mark.run(order=165)
     @pytest.mark.asyncio
     async def test_update_action(self):
-
         update_action_data_list = [
             {
                 "openapi_schema": {
@@ -354,11 +340,9 @@ class TestAction(Tool):
 
             assume_action(get_res_json.get("data"), update_action_data)
 
-
     @pytest.mark.run(order=230)
     @pytest.mark.asyncio
     async def test_delete_action(self):
-
         actions = await list_actions({})
         action_ids = [action.get("action_id") for action in actions.json().get("data")]
         for action_id in action_ids:

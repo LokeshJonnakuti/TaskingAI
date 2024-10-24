@@ -39,7 +39,6 @@ logger.addHandler(console_handler)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-
     try:
         logger.info("fastapi app startup...")
         logger.info("load all bundles and plugins")
@@ -52,12 +51,10 @@ async def lifespan(app: FastAPI):
         yield
 
     finally:
-
         logger.info("fastapi app shutdown...")
 
 
 def init_route_logger(filters: List[str]):
-
     logger = logging.getLogger("uvicorn.access")
     if logger.handlers:
         handler = logger.handlers[0]
@@ -80,7 +77,6 @@ def init_route_logger(filters: List[str]):
 
 
 def create_app():
-
     app = FastAPI(
         title="TaskingAI-Plugin",
         version=CONFIG.VERSION,

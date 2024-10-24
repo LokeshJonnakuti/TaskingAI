@@ -30,9 +30,9 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      base_currency: USD
-      day: 1
-      month: 1
-      year: 2024
+    - input:
+        base_currency: USD
+        day: 1
+        month: 1
+        year: 2024
   mode: schema

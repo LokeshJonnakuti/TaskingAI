@@ -23,7 +23,6 @@ def validate_model_configuration(
 
 
 class TextEmbeddingModelProperties(BaseModelProperties):
-
     embedding_size: int = Field(
         ...,
         ge=1,
@@ -45,7 +44,6 @@ class TextEmbeddingModelProperties(BaseModelProperties):
 
 
 class TextEmbeddingModelPricing(BaseModelPricing):
-
     input_token: float = Field(
         ...,
         description="The input token unit price.",

@@ -16,8 +16,8 @@ router = APIRouter()
     responses={422: {"description": "Unprocessable Entity"}},
 )
 async def api_get_bundle_icon(
-        bundle_id: str,
-        request: Request,
+    bundle_id: str,
+    request: Request,
 ):
     bundle = get_bundle(bundle_id)
     if not bundle:

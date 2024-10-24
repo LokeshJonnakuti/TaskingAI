@@ -52,7 +52,6 @@ class Config:
     """Backend configuration"""
 
     def __init__(self):
-
         # version
         self.VERSION = "v0.2.10"
 
@@ -95,7 +94,9 @@ class Config:
         # file storage
         self.OBJECT_STORAGE_TYPE = load_str_env("OBJECT_STORAGE_TYPE", required=True)
         self.PATH_TO_VOLUME = load_str_env("PATH_TO_VOLUME", required=True)
-        self.INCLUDE_FILE_CATEGORY_IN_STORAGE_PATH = bool(load_int_env("INCLUDE_FILE_CATEGORY_IN_STORAGE_PATH", required=True))
+        self.INCLUDE_FILE_CATEGORY_IN_STORAGE_PATH = bool(
+            load_int_env("INCLUDE_FILE_CATEGORY_IN_STORAGE_PATH", required=True)
+        )
 
         if self.OBJECT_STORAGE_TYPE == "s3":
             self.S3_ACCESS_KEY_ID = load_str_env("S3_ACCESS_KEY_ID", required=True)

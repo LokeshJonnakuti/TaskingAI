@@ -20,6 +20,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      query: quantum computing
+    - input:
+        query: quantum computing
   mode: schema

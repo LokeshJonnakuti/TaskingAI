@@ -13,7 +13,6 @@ credentials_schema:
   required:
     - MINIMAX_API_KEY
 
-
 resources:
   taskingai_documentation_url: "https://docs.tasking.ai/docs/integration/models/language_models/minimax"
   official_site_url: "https://www.minimaxi.com/"

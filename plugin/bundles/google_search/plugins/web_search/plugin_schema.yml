@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      query: the highest mountain in the world
+    - input:
+        query: the highest mountain in the world
   mode: schema

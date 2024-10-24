@@ -71,7 +71,6 @@ class ChatCompletionFunctionParametersProperty(BaseModel):
 
 
 class ChatCompletionFunctionParameters(BaseModel):
-
     properties: Dict[str, ChatCompletionFunctionParametersProperty] = Field(
         ...,
         description="The properties of the parameters.",

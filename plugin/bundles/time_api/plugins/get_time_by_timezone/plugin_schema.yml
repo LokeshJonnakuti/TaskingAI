@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      timezone: Europe/Amsterdam
+    - input:
+        timezone: Europe/Amsterdam
   mode: schema

@@ -26,7 +26,6 @@ class ChatCompletionModelConfiguration(BaseModel):
 
 
 class ChatCompletionModelProperties(BaseModelProperties):
-
     function_call: bool = Field(
         False,
         description="Indicates if the model supports function call.",
@@ -50,7 +49,6 @@ class ChatCompletionModelProperties(BaseModelProperties):
 
 
 class ChatCompletionModelPricing(BaseModelPricing):
-
     input_token: float = Field(
         ...,
         description="The input token price.",

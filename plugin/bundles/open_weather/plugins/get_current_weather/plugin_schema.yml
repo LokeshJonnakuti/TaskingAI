@@ -65,7 +65,7 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      lat: 30.25
-      lon: 120.166
+    - input:
+        lat: 30.25
+        lon: 120.166
   mode: schema

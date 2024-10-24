@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      url: https://tasking.ai
+    - input:
+        url: https://tasking.ai
   mode: schema

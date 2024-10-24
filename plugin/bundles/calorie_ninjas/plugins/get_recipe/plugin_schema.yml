@@ -15,6 +15,6 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      query: beef dumpling
+    - input:
+        query: beef dumpling
   mode: schema

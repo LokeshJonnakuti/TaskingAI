@@ -5,7 +5,6 @@ from app.service.image_storage import save_base64_image_to_s3_or_local
 from bundle_dependency import *
 import qrcode
 
-from config import CONFIG
 
 
 class GenerateQrCode(PluginHandler):

@@ -31,10 +31,10 @@ text_embedding_3_small_1536_name: "text-embedding-3-small-1536"
 text_embedding_3_small_1536_description: "Increased performance over 2nd generation ada embedding model. 1536 Dimensions."
 
 text_embedding_3_large_256_name: "text-embedding-3-large-256"
-text_embedding_3_large_256_description:  "Most capable embedding model for both english and non-english tasks. 256 Dimensions."
+text_embedding_3_large_256_description: "Most capable embedding model for both english and non-english tasks. 256 Dimensions."
 
 text_embedding_3_large_1024_name: "text-embedding-3-large-1024"
-text_embedding_3_large_1024_description:  "Most capable embedding model for both english and non-english tasks. 1024 Dimensions."
+text_embedding_3_large_1024_description: "Most capable embedding model for both english and non-english tasks. 1024 Dimensions."
 
 wildcard_name: "Wildcard"
 wildcard_description: "Wildcard allows you to use any model from OpenAI with custom configurations."

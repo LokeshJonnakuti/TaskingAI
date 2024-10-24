@@ -81,7 +81,6 @@ class Ai21ChatCompletionModel(BaseChatCompletionModel):
         return message_data
 
     def extract_function_calls(self, data: Dict, **kwargs) -> Optional[List[ChatCompletionFunctionCall]]:
-
         return None
 
     def extract_finish_reason(self, data: Dict, **kwargs) -> Optional[ChatCompletionFinishReason]:

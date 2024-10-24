@@ -20,7 +20,7 @@ output_schema:
     type: string
 test:
   cases:
-  - input:
-      slug: dhl
-      tracking_number: '7077779726'
+    - input:
+        slug: dhl
+        tracking_number: "7077779726"
   mode: schema

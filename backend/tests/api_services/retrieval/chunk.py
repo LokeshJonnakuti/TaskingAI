@@ -4,6 +4,7 @@ from backend.tests.common.utils import ResponseWrapper, get_headers
 from backend.tests.common.config import CONFIG
 from backend.tests.api_services.retrieval.collection import COLLECTION_BASE_URL
 
+
 async def query_chunks(collection_id: str, payload: Dict):
     headers = get_headers(CONFIG.Authentication)
     async with aiohttp.ClientSession(headers=headers) as session:
